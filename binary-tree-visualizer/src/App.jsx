@@ -42,19 +42,19 @@ function App() {
   };
 
   return (
-    <div className="container grid grid-cols-1 gap-4 p-4 mx-auto max-w-7xl">
-      <h1 className="text-3xl font-bold text-center text-gray-800">Binary Tree Visualizer</h1>
+    <div className="app-container">
+      <h1 className="title">Binary Tree Visualizer</h1>
       <InputForm onInsert={handleInsert} tree={tree} />
-      <div className="controls flex flex-wrap justify-center gap-2">
-        <button onClick={generateRandom} className="btn">Generate Random Tree</button>
-        <button onClick={() => { tree.root = null; setTraversalResult([]); }} disabled={!tree.root} className="btn disabled:opacity-50">Clear Tree</button>
-        <button onClick={() => performTraversal('preorder')} disabled={!tree.root} className="btn disabled:opacity-50">Preorder</button>
-        <button onClick={() => performTraversal('inorder')} disabled={!tree.root} className="btn disabled:opacity-50">Inorder</button>
-        <button onClick={() => performTraversal('postorder')} disabled={!tree.root} className="btn disabled:opacity-50">Postorder</button>
-        <button onClick={() => performTraversal('level')} disabled={!tree.root} className="btn disabled:opacity-50">Level Order</button>
-        <button onClick={() => performTraversal('spiral')} disabled={!tree.root} className="btn disabled:opacity-50">Spiral Order</button>
+      <div className="controls">
+        <button onClick={generateRandom} className="button">Generate Random Tree</button>
+        <button onClick={() => { tree.root = null; setTraversalResult([]); }} disabled={!tree.root} className="button">Clear Tree</button>
+        <button onClick={() => performTraversal('preorder')} disabled={!tree.root} className="button">Preorder</button>
+        <button onClick={() => performTraversal('inorder')} disabled={!tree.root} className="button">Inorder</button>
+        <button onClick={() => performTraversal('postorder')} disabled={!tree.root} className="button">Postorder</button>
+        <button onClick={() => performTraversal('level')} disabled={!tree.root} className="button">Level Order</button>
+        <button onClick={() => performTraversal('spiral')} disabled={!tree.root} className="button">Spiral Order</button>
       </div>
-      <div className="tree-container mx-auto">
+      <div className="tree-container">
         <TreeVisualizer tree={tree} traversal={traversalResult} onAnimate={animate} />
       </div>
       <TraversalOutput traversalType={traversalType} traversalResult={traversalResult} />

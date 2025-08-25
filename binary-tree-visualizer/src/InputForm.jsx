@@ -4,7 +4,6 @@ const InputForm = ({ onInsert, tree }) => {
   const [value, setValue] = useState('');
   const [position, setPosition] = useState('root');
 
-  // Generate dropdown options based on available positions
   const getAvailablePositions = () => {
     const options = [];
     if (!tree.root) {
@@ -24,7 +23,6 @@ const InputForm = ({ onInsert, tree }) => {
   const positions = getAvailablePositions();
 
   useEffect(() => {
-    // Reset position to 'root' if tree is empty, or first available position
     if (!tree.root) setPosition('root');
     else if (positions.length > 0 && !positions.some(p => p.value === position)) {
       setPosition(positions[0].value);
@@ -45,19 +43,19 @@ const InputForm = ({ onInsert, tree }) => {
   };
 
   return (
-    <div className="input-form flex flex-wrap justify-center gap-2">
+    <form onSubmit={handleSubmit} className="input-form">
       <input
         type="number"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Node Value"
         required
-        className="border rounded px-2 py-1"
+        className="input-field"
       />
       <select
         value={position}
         onChange={(e) => setPosition(e.target.value)}
-        className="border rounded px-2 py-1"
+        className="select-field"
       >
         {positions.length === 0 && tree.root ? (
           <option value="" disabled>No available positions</option>
@@ -67,8 +65,8 @@ const InputForm = ({ onInsert, tree }) => {
           ))
         )}
       </select>
-      <button type="submit" onClick={handleSubmit} className="btn">Insert Node</button>
-    </div>
+      <button type="submit" className="button">Insert Node</button>
+    </form>
   );
 };
 

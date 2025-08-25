@@ -1,52 +1,140 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
   font-family: Arial, sans-serif;
-}
-
-.container {
   min-height: 100vh;
 }
 
-.btn {
-  @apply bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50 disabled:cursor-not-allowed;
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.input-form input, .input-form select {
-  @apply border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500;
+.title {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.input-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.input-field, .select-field {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  outline: none;
+}
+
+.input-field:focus, .select-field:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .tree-container {
-  @apply flex justify-center items-center my-4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.tree-svg {
+  max-width: 100%;
+}
+
+.node-text {
+  font-size: 0.875em;
+  fill: #333;
 }
 
 .traversal-output {
-  @apply mt-4 p-4 bg-white border border-gray-200 rounded shadow-sm max-w-4xl mx-auto;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.traversal-output p {
-  @apply text-lg font-bold text-blue-600 break-words;
+.output-title {
+  margin: 0 0 10px;
+  color: #333;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.output-text {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #007bff;
+  word-wrap: break-word;
 }
 
 @media (max-width: 600px) {
-  .tree-container svg {
-    @apply h-[300px];
+  .app-container {
+    padding: 10px;
+  }
+  .title {
+    font-size: 1.8em;
   }
   .input-form {
-    @apply flex-col items-center;
+    flex-direction: column;
+    align-items: center;
   }
   .controls {
-    @apply flex-col items-center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tree-container svg {
+    height: 300px;
   }
   .traversal-output {
-    @apply max-w-[95%] p-3;
+    max-width: 95%;
+    padding: 10px;
   }
-  .traversal-output p {
-    @apply text-base;
+  .output-text {
+    font-size: 1em;
   }
 }

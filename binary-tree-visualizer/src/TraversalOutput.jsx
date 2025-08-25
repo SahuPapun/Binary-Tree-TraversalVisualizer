@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import './index.css';
 
 const TraversalOutput = ({ traversalType, traversalResult }) => {
   return (
@@ -11,10 +10,10 @@ const TraversalOutput = ({ traversalType, traversalResult }) => {
     >
       {traversalResult.length > 0 && (
         <>
-          <h3 className="text-lg font-semibold text-gray-800">
+          <h3 className="output-title">
             {traversalType.charAt(0).toUpperCase() + traversalType.slice(1)} Traversal
           </h3>
-          <p className="text-blue-600 font-bold">{traversalResult.join(' -> ')}</p>
+          <p className="output-text">{traversalResult.join(' -> ')}</p>
         </>
       )}
     </motion.div>

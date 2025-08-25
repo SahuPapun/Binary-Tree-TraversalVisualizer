@@ -55,7 +55,6 @@ class BinaryTree {
     }
   }
 
-  // Traversals (return array for display and animation steps)
   preorder() {
     const result = [];
     const traverse = (node) => {
@@ -108,11 +107,11 @@ class BinaryTree {
     return result;
   }
 
-  spiralOrder() {  // Zigzag level order
+  spiralOrder() {
     const result = [];
     if (!this.root) return result;
-    const stack1 = [this.root];  // Left to right
-    const stack2 = [];  // Right to left
+    const stack1 = [this.root]; // Left to right
+    const stack2 = []; // Right to left
     while (stack1.length || stack2.length) {
       while (stack1.length) {
         const node = stack1.pop();
